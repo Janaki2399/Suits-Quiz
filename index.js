@@ -1,12 +1,12 @@
-var readLineSync=require('readline-sync');
-var chalk=require('chalk')
+const readLineSync=require('readline-sync');
+const chalk=require('chalk')
 console.log(chalk.blueBright("---Lets see how much you know about Suits----"));
-var name =readLineSync.question(chalk.red("Please enter your name : "));
+const name =readLineSync.question(chalk.red("Please enter your name : "));
  
 console.log("Hello "+ name +" "+"Lets start \n");
 console.log(chalk.yellow("RULE - There are three levels.\n\nLevel 1 - For each correct question you get 1 point.There is no negative marking.If you score more than 5 points you qualify for level 2.\n\nLevel 2 - For each correct question you get 2 points and for each wrong answer you get -1 negative marks.If you score more than 6 points.You qualify for level 3. \n \nLevel 3 - For each correct question you get 5 points.For each wrong answer you lose 5 points. "));
 
-var level1=[
+const level1=[
  {
    question :"The firm hires graduates from which college?",
    choices:['Columbia','Harvard','Stanford','Yale'],
@@ -54,7 +54,7 @@ var level1=[
  }
  ];
 
-var level2=[
+const level2=[
  {
    question :"Who plays mike ross?",
    choices:['WoodSide','Jhonny','Patrick','Sam'],
@@ -87,7 +87,7 @@ var level2=[
  },
 ];
 
-var level3=[
+const level3=[
   {
     question :"What is the name of Nigel's cat? ",
     choices:['Mikado','Donald','Steffy','Candy'],
@@ -114,7 +114,7 @@ var level3=[
    answer:4,
   }
 ]
-let highscore=[
+const highscore=[
   {
   name:'Sam',
   score:40
@@ -128,7 +128,7 @@ let highscore=[
 
 function playLevel(level,score)
 {
-for(var i=0;i<level.length;i++)
+for(let i=0;i<level.length;i++)
 {
   console.log(chalk.cyan.bold(level[i].question));
    userAnswer =readLineSync.keyInSelect(level[i].choices,"Choose option ");
@@ -170,7 +170,7 @@ for(var i=0;i<level.length;i++)
   }
   console.log("\n");
 }
-var totalScore;
+let totalScore;
 if(level===level1)
 {
   totalScore=level.length;
@@ -198,7 +198,7 @@ return score;
 function showHighscore(score)
 {
 
-  for(var i=0;i<highscore.length;i++)
+  for(let i=0;i<highscore.length;i++)
   {
     if(score>highscore[i].score)
     {
@@ -207,7 +207,7 @@ function showHighscore(score)
     }
   }
   console.log("\n---HIGHSCORES---")
-  for(var i=0;i<highscore.length;i++)
+  for(let i=0;i<highscore.length;i++)
   {
     console.log(chalk.yellow(highscore[i].name +" -> "+highscore[i].score));
   }
@@ -215,7 +215,7 @@ function showHighscore(score)
 }
 
 
-var score1=playLevel(level1,0);
+let score1=playLevel(level1,0);
 if(score1>5)
 {
   console.log(chalk.green("YAY!You qualify for level 2 \n"));
